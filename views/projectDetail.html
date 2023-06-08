@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project Details</title>
+    <link rel="stylesheet" href="/public/css/style.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+        integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-nav">
+        <div class="container-fluid">
+            <a href="/" class="navbar-brand"><img src="/public/assets/images/logo.png" alt=""></a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo02"
+                aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse text-center" id="navbarTogglerDemo02">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link" href="/">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="#">Add Project</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="testimoni">My Testimonial</a>
+                    </li>
+                </ul>
+                <a class="btn bg-dark text-white" href="contact">Contact Me</a>
+            </div>
+        </div>
+    </nav>
+        <div class="container p-3 mx-auto">
+            <h1 class="text-center my-3">{{.Projects.Title}}</h1>
+            <div class="container row row-cols-md-2 my-4 mx-auto">
+                <div class="col-md-6 pt-3">
+                    <img class="img-fluid" src="https://picsum.photos/720/440" style="object-fit: cover;" alt=""> 
+                </div>
+                <div class="pt-3 container-fluid">
+                    <h2 class="mb-3">Duration</h2>
+                    <h5 class="mb-2"><i class="fa-regular fa-calendar-days"></i>{{.Projects.StartDate}} - {{.Projects.EndDate}}</h5>
+                    <h5><i class="fa-solid fa-clock"></i> 1 month</h5>
+                    <h2 class="mt-5 mb-3">Technologies</h2>
+                        <div class="row row-cols-2 ">
+                            <div class="col-5 h5">
+                                <p><i class="fa-brands fa-react"></i> React Js</p>
+                            </div>
+                            <div class="col-5 h5">
+                                <p><i class="fa-brands fa-js"></i> JavaScript</p>
+                            </div>
+                            <div class="col-5 h5">
+                                <p><i class="fa-brands fa-node-js"></i> Node Js</p>
+                            </div>
+                            <div class="col-5 h5">
+                                <p><i class="fa-brands fa-android"></i> Android</p>
+                            </div>
+                        </div>
+       
+                </div>
+            </div>
+        </div>
+
+        <div class="container mx-auto p-3">
+            <p>{{.Projects.Desc}}</p>
+        </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
+        crossorigin="anonymous"></script>
+    </body>
+    
+    </html>
