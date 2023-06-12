@@ -28,13 +28,13 @@
                         <a class="nav-link" href="/">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link active" href="#">Add Project</a>
+                        <a class="nav-link active" href="/add-project">Add Project</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="testimoni">My Testimonial</a>
+                        <a class="nav-link" href="/testimoni">My Testimonial</a>
                     </li>
                 </ul>
-                <a class="btn bg-dark text-white" href="contact">Contact Me</a>
+                <a class="btn bg-dark text-white" href="/contact">Contact Me</a>
             </div>
         </div>
     </nav>
@@ -46,22 +46,27 @@
                 </div>
                 <div class="pt-3 container-fluid">
                     <h2 class="mb-3">Duration</h2>
-                    <h5 class="mb-2"><i class="fa-regular fa-calendar-days"></i>{{.Projects.StartDate}} - {{.Projects.EndDate}}</h5>
-                    <h5><i class="fa-solid fa-clock"></i> 1 month</h5>
+                    <h5 class="mb-2"><i class="fa-regular fa-calendar-days"></i> {{.Projects.FormatStartDate}} - {{.Projects.FormatEndDate}}</h5>
+                    <h5><i class="fa-solid fa-clock"></i> {{.Projects.Duration}}</h5>
                     <h2 class="mt-5 mb-3">Technologies</h2>
                         <div class="row row-cols-2 ">
+                            {{if .Projects.Node}}
+                            <div class="col-5 h5">
+                                <p><i class="fa-brands fa-node"></i> Node Js</p>
+                            </div>
+                            {{end}} {{if .Projects.Golang}}
+                            <div class="col-5 h5">
+                                <p><i class="fa-brands fa-golang"></i> Golang</p>
+                            </div>
+                            {{end}} {{if .Projects.React}}
                             <div class="col-5 h5">
                                 <p><i class="fa-brands fa-react"></i> React Js</p>
                             </div>
+                            {{end}} {{if .Projects.Java}}
                             <div class="col-5 h5">
-                                <p><i class="fa-brands fa-js"></i> JavaScript</p>
+                                <p><i class="fa-brands fa-java"></i> Java</p>
                             </div>
-                            <div class="col-5 h5">
-                                <p><i class="fa-brands fa-node-js"></i> Node Js</p>
-                            </div>
-                            <div class="col-5 h5">
-                                <p><i class="fa-brands fa-android"></i> Android</p>
-                            </div>
+                            {{end}}
                         </div>
        
                 </div>

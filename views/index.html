@@ -5,7 +5,7 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Personal Web</title>
-        <link rel="stylesheet" href="public/css/style.css">
+        <link rel="stylesheet" href="/public/css/style.css">
         <link
             href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
             rel="stylesheet"
@@ -65,7 +65,7 @@
             </div>
         </section>
 
-        <div class="container-fluid bg-white pt-3 mt-4">
+        <div class="container-fluid bg-white py-3 mt-4">
             <h1 class="text-center my-3">MY PROJECT</h1>
             <div class="container">
                 <div class="row row-cols-md-3 mx-auto gx-3 gy-2"> 
@@ -74,16 +74,25 @@
                         <div class="col-md-4 p-3 "> 
                             <div class="card border-0 shadow-lg p-3">
                                 <img class="card-img-top" src="https://picsum.photos/300/200" alt="">
-                                <h3 class="card-title"><a class="text-dark text-decoration-none" href="/detail-project/{{$index}}">{{$data.Title}}</a></h3>
-                                <p class="text-muted">{{$data.StartDate}} || {{$data.EndDate}}</p>
+                                <h3 class="card-title"><a class="text-dark text-decoration-none" href="/detail-project/{{$data.Id}}">{{$data.Title}}</a></h3>
+                                <p class="text-muted">{{$data.Duration}}</p>
                                 <p>{{$data.Desc}}</p>
-                                <p class="h3"><i class="bi bi-google-play me-1" ></i> <i class="bi bi-android2 me-2" style="display: none;"></i><i class="fa-brands fa-java"></i></p>
-                                <div class="d-flex my-3 container-fluid justify-content-center">
-                                    <form action="" method="" class="me-1" style="width: max-content;">
-                                        <input type="" value="Edit Project" class="btn btn-dark text-white">
+                                <p class="h3">
+                                    {{if $data.Node}}
+                                    <i class="fa-brands fa-node-js"></i> 
+                                    {{end}} {{if $data.Golang}}
+                                    <i class="fa-brands fa-golang"></i>
+                                    {{end}} {{if $data.React}}
+                                    <i class="fa-brands fa-react"></i>
+                                    {{end}} {{if $data.Java}}
+                                    <i class="fa-brands fa-java"></i></p>
+                                    {{end}}
+                                <div class="row row-cols-2 my-3">
+                                    <form action="/update-project/{{$data.Id}}" method="GET" class="d-flex justify-content-center">
+                                        <input type="submit" value="Edit Project" class="btn btn-dark" style="width: 90%;">
                                     </form>
-                                    <form action="/delete-project/{{$index}}" method="POST" class="ms-1" style="width: max-content;">
-                                        <input type="submit" value="Delete Project" class="btn btn-dark text-white">
+                                    <form action="/delete-project/{{$data.Id}}" method="POST" class="d-flex justify-content-center">
+                                        <input type="submit" value="Delete Project" class="btn btn-dark" style="width: 90%;">
                                     </form>
                                 </div>
                             </div>

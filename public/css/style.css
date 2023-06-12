@@ -15,6 +15,10 @@ body {
     background-color: #f4f3f3; 
 }
 
+.btnCardIndex {
+    width: 100%;
+}
+
 @media only screen and (min-width: 900px) {
     .form-size {
         width: 50%;
