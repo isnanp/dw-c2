@@ -27,14 +27,35 @@
                     <li class="nav-item">
                         <a class="nav-link" href="/">Home</a>
                     </li>
+                    {{if .UserData.IsLogin}}
                     <li class="nav-item">
-                        <a class="nav-link active" href="/add-project">Add Project</a>
+                        <a class="nav-link" href="/add-project">Add Project</a>
                     </li>
+                    {{end}}
                     <li class="nav-item">
                         <a class="nav-link" href="/testimoni">My Testimonial</a>
                     </li>
                 </ul>
-                <a class="btn bg-dark text-white" href="/contact">Contact Me</a>
+                <ul class="navbar-nav ">
+                    {{if .UserData.IsLogin}}
+                    <li class="nav-item d-flex align-content-center justify-content-center">
+                        <button class="btn bg-transparent border-0">Halo, {{.UserData.Name}}!</button>
+                        <form action="/logout" method="post">
+                            <input type="submit" value="logout" class="btn bg-transparent border-0">
+                        </form>
+                    </li>
+                        {{else}}
+                    <li class="nav-item">
+                        <a href="register-page" class="nav-link"> Register</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link"> Login</a>
+                    </li>
+                    {{end}}
+                    <li class="nav-item">
+                        <a class="btn bg-dark text-white ms-3" href="contact">Contact Me</a>
+                    </li>
+                </ul>
             </div>
         </div>
     </nav>
@@ -42,12 +63,12 @@
             <h1 class="text-center my-3">{{.Projects.Title}}</h1>
             <div class="container row row-cols-md-2 my-4 mx-auto">
                 <div class="col-md-6 pt-3">
-                    <img class="img-fluid" src="https://picsum.photos/720/440" style="object-fit: cover;" alt=""> 
+                    <img class="img-fluid" src="/uploads/{{.Projects.Image}}" style="object-fit: cover;" alt=""> 
                 </div>
                 <div class="pt-3 container-fluid">
                     <h2 class="mb-3">Duration</h2>
                     <h5 class="mb-2"><i class="fa-regular fa-calendar-days"></i> {{.Projects.FormatStartDate}} - {{.Projects.FormatEndDate}}</h5>
-                    <h5><i class="fa-solid fa-clock"></i> {{.Projects.Duration}}</h5>
+                    <h5><i class="fa-solid fa-clock"></i> {{.Projects.Duration}} | {{.Projects.Author}}</h5>
                     <h2 class="mt-5 mb-3">Technologies</h2>
                         <div class="row row-cols-2 ">
                             {{if .Projects.Node}}
@@ -72,7 +93,7 @@
                 </div>
             </div>
         </div>
-
+        
         <div class="container mx-auto p-3">
             <p>{{.Projects.Desc}}</p>
         </div>
